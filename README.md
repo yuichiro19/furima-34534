@@ -27,7 +27,7 @@
 | category_id         | integer    | null: false                    |
 | status_id           | integer    | null: false                    | 
 | shipping_fee_id     | integer    | null: false                    |
-| area_id             | integer    | null: false                    |
+| prefucture_id       | integer    | null: false                    |
 | date_of_shipment_id | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
 
@@ -39,12 +39,12 @@
 ## shipping_addresses テーブル
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| postal_code   | integer    | null: false                    |
+| postal_code   | string     | null: false                    |
 | prefucture_id | integer    | null: false                    |
 | city          | string     | null: false                    |
 | address       | string     | null: false                    | 
 | building      | string     |                                |
-| phone_number  | integer    | null: false                    |
+| phone_number  | string     | null: false                    |
 | purchase      | references | null: false, foreign_key: true |
 
 ### Association

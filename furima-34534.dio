@@ -1,4 +1,4 @@
-<mxfile host="65bd71144e" modified="2021-02-27T16:55:51.783Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="UdNkg_yoFUI3rApWkqN4" version="14.2.4" type="embed">
+<mxfile host="65bd71144e" modified="2021-02-28T05:45:05.940Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="lA8YkGCJtwLtn2rDS2Ud" version="14.2.4" type="embed">
     <diagram id="n72wKUA7XZm3Ol2IFhR3" name="ページ1">
         <mxGraphModel dx="1016" dy="859" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
@@ -31,7 +31,7 @@
                 <mxCell id="76" value="status_id" style="whiteSpace=wrap;html=1;align=center;" parent="36" vertex="1">
                     <mxGeometry y="266" width="190" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="77" value="area_id" style="whiteSpace=wrap;html=1;align=center;" parent="36" vertex="1">
+                <mxCell id="77" value="prefectures_id" style="whiteSpace=wrap;html=1;align=center;" parent="36" vertex="1">
                     <mxGeometry y="306" width="190" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="79" value="date_of_shipment_id" style="whiteSpace=wrap;html=1;align=center;" parent="36" vertex="1">
