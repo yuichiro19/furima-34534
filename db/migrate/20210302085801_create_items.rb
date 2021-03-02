@@ -9,7 +9,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :shipping_fee_id
       t.integer :prefucture_id
       t.integer :date_of_shipment_id
-      t.references :user, forign_key: true
+      t.references :user, foreign_key: true
       t.timestamps
     end
   end
