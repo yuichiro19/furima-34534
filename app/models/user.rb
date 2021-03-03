@@ -20,4 +20,6 @@ class User < ApplicationRecord
     validates :family_name_hurigana
     validates :first_name_hurigana
   end
+
+  has_many :items
 end
