@@ -4,7 +4,7 @@ class Item < ApplicationRecord
     belongs_to :category
     belongs_to :date_of_shipment
     belongs_to :shipping_fee
-    belongs_to :sattus
+    belongs_to :status
     has_one_attached :image
     belongs_to :user
 
@@ -18,10 +18,9 @@ class Item < ApplicationRecord
         validates :category_id
         validates :status_id
         validates :shipping_fee_id
-        validates :prefucture_id
+        validates :prefecture_id
         validates :date_of_shipment_id
     end
 
-    validates :price, presence :true, format: { with: /\A[0-9]+\z/, message: 'Half-width number'}, 
-    numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: 'Out of setting range' }
+    validates :price, presence: true, format: { with: /\A[0-9]+\z/, message: 'Half-width number' }, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: 'Out of setting range' }
 end

@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_03_02_094103) do
     t.integer "category_id"
     t.integer "status_id"
     t.integer "shipping_fee_id"
-    t.integer "prefucture_id"
+    t.integer "prefecture_id"
     t.integer "date_of_shipment_id"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
@@ -67,4 +67,5 @@ ActiveRecord::Schema.define(version: 2021_03_02_094103) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "items", "users"
 end
