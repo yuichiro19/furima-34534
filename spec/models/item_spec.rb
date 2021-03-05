@@ -9,7 +9,7 @@ RSpec.describe Item, type: :model do
     context '商品を出品できる場合' do
       it '全ての項目が正しく入力されていれば出品できる' do
         expect(@item).to be_valid
-      end 
+      end
     end
     context '商品を出品できない場合' do
       it 'imageが空では出品できない' do
@@ -25,60 +25,58 @@ RSpec.describe Item, type: :model do
       it 'textが空では出品できない' do
         @item.text = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include "Text can't be blank"        
+        expect(@item.errors.full_messages).to include "Text can't be blank"
       end
       it 'category_idが未選択では出品できない' do
         @item.category_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include "Category Select"
+        expect(@item.errors.full_messages).to include 'Category Select'
       end
       it 'status_idが未選択では出品できない' do
         @item.status_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include "Status Select"
+        expect(@item.errors.full_messages).to include 'Status Select'
       end
       it 'shipping_fee_idが未選択では出品できない' do
         @item.shipping_fee_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include "Shipping fee Select"
+        expect(@item.errors.full_messages).to include 'Shipping fee Select'
       end
       it 'prefecture_idが未選択では出品できない' do
         @item.prefecture_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include "Prefecture Select"
+        expect(@item.errors.full_messages).to include 'Prefecture Select'
       end
       it 'date_of_shipmentが未選択では出品できない' do
         @item.date_of_shipment_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include "Date of shipment Select"
+        expect(@item.errors.full_messages).to include 'Date of shipment Select'
       end
       it 'priceが空では出品できない' do
         @item.price = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price Out of setting range"
+        expect(@item.errors.full_messages).to include 'Price Out of setting range'
       end
       it 'priceが300以上でないと出品できない' do
         @item.price = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price Out of setting range"
+        expect(@item.errors.full_messages).to include 'Price Out of setting range'
       end
       it 'priceが9999999以下でないと出品できない' do
-        @item.price = 10000000
+        @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price Out of setting range"
+        expect(@item.errors.full_messages).to include 'Price Out of setting range'
       end
       it 'priceが半角数字でないと出品できない' do
         @item.price = '５００'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price Out of setting range"
+        expect(@item.errors.full_messages).to include 'Price Out of setting range'
       end
       it 'userが紐づいていなければ出品できない' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include "User must exist"
+        expect(@item.errors.full_messages).to include 'User must exist'
       end
-      
-      
     end
   end
 end
