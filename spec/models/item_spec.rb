@@ -32,8 +32,18 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include 'Category Select'
       end
+      it 'category_idが空では出品できない' do
+        @item.category_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include 'Category Select'
+      end
       it 'status_idが未選択では出品できない' do
         @item.status_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include 'Status Select'
+      end
+      it 'status_idが空では出品できない' do
+        @item.status_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include 'Status Select'
       end
@@ -42,13 +52,28 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include 'Shipping fee Select'
       end
+      it 'shipping_fee_idが空では出品できない' do
+        @item.shipping_fee_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include 'Shipping fee Select'
+      end
       it 'prefecture_idが未選択では出品できない' do
         @item.prefecture_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include 'Prefecture Select'
       end
-      it 'date_of_shipmentが未選択では出品できない' do
+      it 'prefecture_idが空では出品できない' do
+        @item.prefecture_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include 'Prefecture Select'
+      end
+      it 'date_of_shipment_idが未選択では出品できない' do
         @item.date_of_shipment_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include 'Date of shipment Select'
+      end
+      it 'date_of_shipment_idが空では出品できない' do
+        @item.date_of_shipment_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include 'Date of shipment Select'
       end
