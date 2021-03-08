@@ -12,6 +12,8 @@ class Item < ApplicationRecord
     validates :item_name
     validates :text
     validates :image
+    validates :price, numericality: { other_than: 0, message: 'Half-width number' },
+                      inclusion: { in: 300..9_999_999, message: 'Out of setting range' }
   end
 
   with_options numericality: { other_than: 0, message: 'Select' } do
@@ -22,6 +24,6 @@ class Item < ApplicationRecord
     validates :date_of_shipment_id
   end
 
-  validates :price, presence: true, format: { with: /\A[0-9]+\z/, message: 'Half-width number' },
-                    numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'Out of setting range' }
+  # validates :price, format: { with: /\A[0-9]+\z/, message: 'Half-width number' },
+  # numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'Out of setting range' }
 end
