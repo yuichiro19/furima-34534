@@ -34,15 +34,15 @@ ActiveRecord::Schema.define(version: 2021_03_02_094103) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "item_name"
-    t.text "text"
-    t.integer "price"
-    t.integer "category_id"
-    t.integer "status_id"
-    t.integer "shipping_fee_id"
-    t.integer "prefecture_id"
-    t.integer "date_of_shipment_id"
-    t.bigint "user_id"
+    t.string "item_name", null: false
+    t.text "text", null: false
+    t.integer "price", null: false
+    t.integer "category_id", null: false
+    t.integer "status_id", null: false
+    t.integer "shipping_fee_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "date_of_shipment_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_items_on_user_id"
@@ -51,12 +51,12 @@ ActiveRecord::Schema.define(version: 2021_03_02_094103) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "name"
-    t.string "family_name"
-    t.string "first_name"
-    t.string "family_name_hurigana"
-    t.string "first_name_hurigana"
-    t.date "birthday"
+    t.string "name", null: false
+    t.string "family_name", null: false
+    t.string "first_name", null: false
+    t.string "family_name_hurigana", null: false
+    t.string "first_name_hurigana", null: false
+    t.date "birthday", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
