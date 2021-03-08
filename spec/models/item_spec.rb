@@ -78,9 +78,9 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include 'Date of shipment Select'
       end
       it 'priceが空では出品できない' do
-        @item.price = 0
+        @item.price = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include 'Price Out of setting range'
+        expect(@item.errors.full_messages).to include "Price can't be blank"
       end
       it 'priceが300以上でないと出品できない' do
         @item.price = 299
@@ -95,17 +95,17 @@ RSpec.describe Item, type: :model do
       it 'priceが全角だと出品できない' do
         @item.price = '５００'
         @item.valid?
-        expect(@item.errors.full_messages).to include 'Price Out of setting range'
+        expect(@item.errors.full_messages).to include 'Price Half-width number'
       end
       it 'priceが半角英数混合だと出品できない' do
         @item.price = 'price500'
         @item.valid?
-        expect(@item.errors.full_messages).to include 'Price Out of setting range'
+        expect(@item.errors.full_messages).to include 'Price Half-width number'
       end
       it 'priceが半角英語だと出品できない' do
         @item.price = 'price'
         @item.valid?
-        expect(@item.errors.full_messages).to include 'Price Out of setting range'
+        expect(@item.errors.full_messages).to include 'Price Half-width number'
       end
       it 'userが紐づいていなければ出品できない' do
         @item.user = nil
