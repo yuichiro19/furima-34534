@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
-      redirect_to  item_path, method: :get
+      redirect_to item_path, method: :get
     else
       render :edit
     end
@@ -42,10 +42,9 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:item_name, :image, :text, :price, :category_id, :status_id, :shipping_fee_id, :prefecture_id,
                                  :date_of_shipment_id).merge(user_id: current_user.id)
   end
+
   def move_to_index
     @item = Item.find(params[:id])
-    unless user_signed_in? && current_user.id == @item.user_id
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless user_signed_in? && current_user.id == @item.user_id
   end
 end
