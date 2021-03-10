@@ -1,6 +1,6 @@
 class FormObject 
     include ActiveModel::Model
-    attr_accessor :user, :item, :postal_code, :prefecture_id, :city, :address, :building, :phone_number, :purchase
+    attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :city, :address, :building, :phone_number, :purchase_id
     
     with_options presence: true do
         validates :postal_code
@@ -12,7 +12,7 @@ class FormObject
 
     def save
         Purchase.create(:user_id, :item_id)
-        ShippingAddress.create(:postal_code, :prefecture_id, :city, :address, :building, :phone_number, :purchase)
+        ShippingAddress.create(:postal_code, :prefecture_id, :city, :address, :building, :phone_number, :purchase_id)
     end
 
 end
