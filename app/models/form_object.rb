@@ -6,7 +6,7 @@ class FormObject
         validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "Input correctly"}
         validates :city
         validates :address
-        validates :phone_number, format: {with: /\A[0-9]{1, 11}\z/, message: "number Input only number"}
+        validates :phone_number, format: {with: /\A[0-9]{,11}\z/, message: "Input only number"}
         validates :user_id
         validates :item_id
     end
