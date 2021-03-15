@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe FormObject, type: :model do
   before do
     @form_object = FactoryBot.build(:form_object)
+    @form_object.user_id = FactoryBot.create(:user).id 
+    @form_object.item_id = FactoryBot.create(:item).id
     sleep(1)
   end
 
