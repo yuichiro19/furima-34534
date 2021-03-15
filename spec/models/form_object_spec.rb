@@ -16,6 +16,11 @@ RSpec.describe FormObject, type: :model do
       end
     end
     context '商品が購入できない場合' do
+      it 'tokenが空では登録できない' do
+        @form_object.token = nil
+        @form_object.valid?
+        expect(@form_object.errors.full_messages).to include "Token can't be blank"
+      end
       it 'postal_codeが空では購入できない' do
         @form_object.postal_code = ''
         @form_object.valid?
