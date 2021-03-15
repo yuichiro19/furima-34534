@@ -1,12 +1,14 @@
 class PurchasesController < ApplicationController
+    before_action :authenticate_user!
+    before_action :set_item
+    before_action :move_to_top_page
+
   def index
     @form_object = FormObject.new
-    @item = Item.find(params[:item_id])
   end
 
   def create
     @form_object = FormObject.new(form_object_params)
-    @item = Item.find(params[:item_id])
     if @form_object.valid?
       pay_item
       @form_object.save
@@ -17,6 +19,10 @@ class PurchasesController < ApplicationController
   end
 
   private
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
 
   def form_object_params
     params.require(:form_object).permit(:postal_code, :prefecture_id, :city, :address, :building, :phone_number, :purchase_id).merge(
@@ -32,4 +38,9 @@ class PurchasesController < ApplicationController
       currency: 'jpy'
     )
   end
+
+  def move_to_top_page
+    redirect_to  root_path if current_user.id == @item.user_id || Purchase.exists?(item_id: @item.id)
+  end
+
 end
