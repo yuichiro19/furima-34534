@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe FormObject, type: :model do
   before do
     @form_object = FactoryBot.build(:form_object)
+    sleep(1)
   end
 
   describe '商品の購入' do
