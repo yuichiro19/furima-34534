@@ -1,7 +1,7 @@
 class PurchasesController < ApplicationController
-    before_action :authenticate_user!
-    before_action :set_item
-    before_action :move_to_top_page
+  before_action :authenticate_user!
+  before_action :set_item
+  before_action :move_to_top_page
 
   def index
     @form_object = FormObject.new
@@ -40,7 +40,6 @@ class PurchasesController < ApplicationController
   end
 
   def move_to_top_page
-    redirect_to  root_path if current_user.id == @item.user_id || Purchase.exists?(item_id: @item.id)
+    redirect_to root_path if current_user.id == @item.user_id || Purchase.exists?(item_id: @item.id)
   end
-
 end
